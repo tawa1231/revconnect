@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevConnect</title>
+    <link rel="icon" href="logo2.ico">
+    <style>
+        body {
+            background-color: #2b2b2b;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #171717;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #9D9D9D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7A7A7A;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea {
+            margin-top: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 20px;
+        }
+
+        #ideas-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .idea-post {
+            background-color: #171717;
+            margin: 10px;
+            padding: 20px;
+            width: calc(33% - 40px);
+            border-radius: 10px;
+        }
+
+        .idea-post h3 {
+            margin-top: 0;
+        }
+
+        .idea-post button {
+            background-color: #6A6A6A;
+            margin-top: 10px;
+        }
+
+        .idea-post button:hover {
+            background-color: #5A5A5A;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo da RevConnect" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#ideas">Ideias</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Bem-vindo à RevConnect</h2>
+        <p>Compartilhe suas ideias e encontre colaboradores para torná-las realidade.</p>
+        <button onclick="document.getElementById('submit-idea').scrollIntoView()">Submeter Ideia</button>
+    </section>
+
+    <section id="about">
+        <h2>Sobre Nós</h2>
+        <p>Nosso objetivo é conectar empreendedores e colaboradores para desenvolver novas ideias e negócios na região.</p>
+    </section>
+
+    <section id="ideas">
+        <h2>Ideias Recentes</h2>
+        <div id="ideas-container">
+            <!-- Ideias serão carregadas aqui via JavaScript -->
+        </div>
+    </section>
+
+    <section id="submit-idea">
+        <h2>Submeter Nova Ideia</h2>
+        <form id="submit-idea-form">
+            <label for="idea-title">Título da Ideia:</label>
+            <input type="text" id="idea-title" name="title" required>
+            
+            <label for="idea-description">Descrição:</label>
+            <textarea id="idea-description" name="description" required></textarea>
+            
+            <button type="submit">Submeter</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contato</h2>
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ideas = [
+                { title: 'Aplicativo de Entregas Sustentáveis', description: 'Uma plataforma para conectar entregadores que utilizam meios de transporte sustentáveis com consumidores locais.' },
+                { title: 'Feira Virtual de Produtos Orgânicos', description: 'Um site onde produtores locais podem vender seus produtos orgânicos diretamente aos consumidores.' },
+                { title: 'Centro de Co-Working para Mulheres', description: 'Um espaço de co-working dedicado a apoiar mulheres empreendedoras na região.' },
+                { title: 'Plataforma de Aulas Particulares', description: 'Um site para conectar professores particulares com alunos que precisam de reforço escolar.' },
+                { title: 'App de Voluntariado Local', description: 'Um aplicativo que conecta pessoas interessadas em voluntariado com ONGs e projetos locais que precisam de ajuda.' },
+                { title: 'Biblioteca Comunitária Digital', description: 'Uma plataforma onde os moradores podem compartilhar e emprestar livros digitais uns com os outros.' },
+                { title: 'Serviço de Consultoria Financeira', description: 'Um site para oferecer consultoria financeira acessível para pequenos empresários e moradores da região.' },
+                { title: 'Hub de Inovação e Startups', description: 'Um espaço para conectar startups locais com investidores e mentores.' },
+                { title: 'Plataforma de Troca de Habilidades', description: 'Um site onde as pessoas podem oferecer e buscar serviços com base em trocas de habilidades, sem envolver dinheiro.' },
+                { title: 'Portal de Notícias Comunitárias', description: 'Um site dedicado a compartilhar notícias, eventos e atualizações importantes sobre a comunidade.' }
+            ];
+
+            const ideasContainer = document.getElementById('ideas-container');
+            
+            ideas.forEach(idea => {
+                const ideaPost = document.createElement('div');
+                ideaPost.classList.add('idea-post');
+                
+                const ideaTitle = document.createElement('h3');
+                ideaTitle.textContent = idea.title;
+                
+                const ideaDescription = document.createElement('p');
+                ideaDescription.textContent = idea.description;
+                
+                const participateButton = document.createElement('button');
+                participateButton.textContent = 'Participar';
+                participateButton.addEventListener('click', () => {
+                    alert(`Você está participando da ideia: ${idea.title}`);
+                });
+                
+                ideaPost.appendChild(ideaTitle);
+                ideaPost.appendChild(ideaDescription);
+                ideaPost.appendChild(participateButton);
+                
+                ideasContainer.appendChild(ideaPost);
+            });
+        });
+    </script>
+</body>
+</html>
