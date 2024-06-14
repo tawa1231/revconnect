@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RevConnect</title>
+    <link rel="icon" href="logo2.ico">
+    <style>
+        body {
+            background-color: #2B2B2B;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #3B3B3B;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input {
+            margin-top: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 20px;
+            background-color: #9D9D9D;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #7A7A7A;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="login-form">
+        <img src="logo.png" alt="Logo da RevConnect" class="logo">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="email" required>
+        
+        <label for="login-password">Senha:</label>
+        <input type="password" id="login-password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aqui você adicionaria a lógica de login, por exemplo, validando os dados no servidor.
+
+            // Simulação de sucesso no login:
+            alert('Login realizado com sucesso!');
+            window.location.href = 'index.html';  // Redireciona para a página inicial
+        });
+    </script>
+</body>
+</html>
